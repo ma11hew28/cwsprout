@@ -17,6 +17,6 @@ Admin.GroupFeature = SC.Record.extend(
 
   dataSource: Admin.server,
   properties: ['startDate', 'endDate', 'priority'],
-  topicType: 'Admin.Group',
+  groupType: 'Admin.Group',
 
 }) ;

@@ -70,6 +70,9 @@ Admin.TableView = SC.View.extend(
 		content.each( function(record){
 			html.push('\n    <tr>');
 
+			Admin.topicFeaturesController.arrangedObjects[0].get('topic').get('guid')
+			Admin.topicFeaturesController.arrangedObjects[0].get('topic').get('subject')
+
 			var noColumns = record.get('properties').length;
 			for (i=0; i < noColumns; i++){
 				html.push('\n      <td>');

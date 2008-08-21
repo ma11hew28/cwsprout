@@ -15,8 +15,6 @@ require('core');
 */
 Admin.topicFeaturesController = SC.CollectionController.create(
 /** @scope Admin.topicFeaturesController */ {
-
-	title: 'Topic',
 	
 	// new: function(sender){
 	//     var content = this.get('content');
@@ -34,7 +32,7 @@ Admin.topicFeaturesController = SC.CollectionController.create(
 	//     this.set('selection',[note]);
 	//     SN.detailController.showEditor();
 	//   },
-	// 
+
 	//   del: function(sender){
 	//     if(!confirm('Are you sure?')) return;
 	//     var content = this.get('content');

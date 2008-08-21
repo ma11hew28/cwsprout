@@ -17,6 +17,6 @@ Admin.NetworkFeature = SC.Record.extend(
 
   dataSource: Admin.server,
   properties: ['startDate', 'endDate', 'priority'],
-  topicType: 'Admin.Network',
+  networkType: 'Admin.Network',
 
 }) ;
