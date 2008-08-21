@@ -15,7 +15,7 @@ require('core');
 Admin.TableView = SC.View.extend(
 /** @scope Admin.TableView.prototype */ {
 
-	// emptyElement: '<table class="sc-tabel-view"></table>', // this doesn't seem to do anything...
+	emptyElement: '<table class="sc-tabel-view"></table>', // this doesn't seem to do anything...
 
 	// Properties
 	content: [],
@@ -31,22 +31,30 @@ Admin.TableView = SC.View.extend(
 		// html.push('\n  <caption>' + tableTitle.toString() + '</caption>'
 		// html.push(this._renderColGroup('properties'))
 		
-	  html.push('\n  <caption>' + this.get('title') + '</caption>');
+	  html.push('\n  <caption>' + this.get('title') + ' Features</caption>');
 	
 		html.push('\n  <colgroup>\
+		 					 \n    <col id=\"delete\">\
 							 \n    <col id=\"feature_id\">\
+							 \n    <col id=\"type_id\">\
+							 \n    <col id=\"type_name\">\
                \n    <col id=\"start_date\">\
                \n    <col id=\"end_date\">\
                \n    <col id=\"priority\">\
+							 \n    <col id=\"edit\">\
                \n  </colgroup>\
                \n  <thead>\
                \n    <tr>\
+					     \n      <th scope=\"col\">Delete</th>\
 					     \n      <th scope=\"col\">Feature ID</th>\
+					     \n      <th scope=\"col\">' + this.get('title') + ' ID</th>\
+					     \n      <th scope=\"col\">' + this.get('title') + ' Title</th>\
 					     \n      <th scope=\"col\">Start Date</th>\
 					     \n      <th scope=\"col\">End Date</th>\
 					     \n      <th scope=\"col\">Priority</th>\
+					     \n      <th scope=\"col\">Edit</th>\
                \n    </tr>\
-               \n  </thead>');	  
+               \n  </thead>');
 
 		// Iterate through the collection and add rows
 		html.push(this._renderTBody(content));

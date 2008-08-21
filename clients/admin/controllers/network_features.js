@@ -16,7 +16,7 @@ require('core');
 Admin.networkFeaturesController = SC.CollectionController.create(
 /** @scope Admin.networkFeaturesController */ {
 
-	title: 'Network Features',
+	title: 'Network',
 
   search: function(searchWord){
     this.content.set('conditions', {'search':  this.get(searchWord)});

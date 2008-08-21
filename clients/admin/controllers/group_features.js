@@ -16,7 +16,7 @@ require('core');
 Admin.groupFeaturesController = SC.CollectionController.create(
 /** @scope Admin.groupFeaturesController */ {
 
-	title: 'Feature Groups',
+	title: 'Group',
 
   search: function(searchWord){
     this.content.set('conditions', {'search':  this.get(searchWord)});

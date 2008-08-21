@@ -16,7 +16,7 @@ require('core');
 Admin.topicFeaturesController = SC.CollectionController.create(
 /** @scope Admin.topicFeaturesController */ {
 
-	title: 'Topic Features',
+	title: 'Topic',
 	
 	// new: function(sender){
 	//     var content = this.get('content');
