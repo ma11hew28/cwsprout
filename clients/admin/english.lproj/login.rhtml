@@ -1,0 +1,36 @@
+<% view :login_dialog, :pane => :dialog, 
+        :visible => true, 
+        :width => 300, 
+        :bind => {:visible => 'Admin.accountController.loginIsVisible'} do %>
+<h1>Login</h1>
+<hr>
+
+<table>
+<tr>
+  <td><label>Name:</label></td>
+  <td><%= text_field_view :username, 
+            :outlet => true, 
+            :hint => 'Your name', 
+            :bind => {:value => 'Admin.accountController.username'}
+  %></td>
+</tr>
+<tr>
+  <td><label>Password:</label></td>
+  <td><%= password_field_view :password, 
+            :outlet => true, 
+            :hint => 'Your password',
+            :bind => {:value => 'Admin.accountController.password'}
+  %></td>
+</tr>
+</table>
+
+<%= button_view :outlet => true,
+  :title => "Login",    :width => 70,
+  :action => 'Admin.accountController.login',
+  :bind=>{:visible => 'Admin.accountController.loginButtonIsVisible',
+          :title   => 'Admin.accountController.loginButtonTitle',
+          :enabled => 'Admin.accountController.loginButtonEnabled',
+          :default => 'Admin.accountController.loginButtonIsVisible'}
+%>
+
+<% end %> <!-- login_dialog -->
