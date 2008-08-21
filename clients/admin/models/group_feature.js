@@ -16,8 +16,7 @@ Admin.GroupFeature = SC.Record.extend(
 /** @scope Admin.GroupFeature.prototype */ {
 
   dataSource: Admin.server,
-  properties: ['group', 'feature'],
+  properties: ['startDate', 'endDate', 'priority'],
   topicType: 'Admin.Group',
-	featureType: 'Admin.Feature',
 
 }) ;

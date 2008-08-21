@@ -17,6 +17,6 @@ Admin.Topic = SC.Record.extend(
 
   dataSource: Admin.server,
   properties: ['subject', 'body'],
-  features: SC.Record.hasMany('Admin.TopicFeature', 'topic')
+  features: SC.Record.hasMany('Admin.TopicFeature', 'topic'),
 
 }) ;

@@ -16,8 +16,7 @@ Admin.NetworkFeature = SC.Record.extend(
 /** @scope Admin.NetworkFeature.prototype */ {
 
   dataSource: Admin.server,
-  properties: ['network', 'feature'],
+  properties: ['startDate', 'endDate', 'priority'],
   topicType: 'Admin.Network',
-	featureType: 'Admin.Feature',
 
 }) ;

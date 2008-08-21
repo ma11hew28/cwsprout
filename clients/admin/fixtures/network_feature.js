@@ -12,37 +12,42 @@ Admin.FIXTURES = Admin.FIXTURES.concat([
 
   { guid: 1,
     type: 'NetworkFeature',
-		startDate: Date(),
-		endDate: Date(),
-	  priority: 1,
+  		network: 1,
+			startDate: Date(),
+			endDate: Date(),
+		  priority: 1,
   },
   
   { guid: 2,
     type: 'NetworkFeature',
-		startDate: Date(),
-		endDate: Date(),
-	  priority: 2,
+			network: 1,
+			startDate: Date(),
+			endDate: Date(),
+		  priority: 2,
   },
-
+  
   { guid: 3,
     type: 'NetworkFeature',
-		startDate: Date(),
-		endDate: Date(),
-	  priority: 3,
+			network: 1,
+			startDate: Date(),
+			endDate: Date(),
+		  priority: 3,
   },
-
+  
   { guid: 4,
     type: 'NetworkFeature',
-		startDate: Date(),
-		endDate: Date(),
-	  priority: 4,
+			network: 2,
+			startDate: Date(),
+			endDate: Date(),
+		  priority: 4,
   },
-
+  
   { guid: 5,
     type: 'NetworkFeature',
-		startDate: Date(),
-		endDate: Date("August 3, 1942"),
-	  priority: 5,
-  }
+			network: 3,
+			startDate: Date(),
+			endDate: Date(),
+		  priority: 5,
+  },
 
 ]);
