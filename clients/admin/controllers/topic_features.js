@@ -15,9 +15,18 @@ require('core');
 */
 Admin.topicFeaturesController = SC.CollectionController.create(
 /** @scope Admin.topicFeaturesController */ {
+
+	add: function(sender){
 	
-	// new: function(sender){
-	//     var content = this.get('content');
+		var topicFeature = Admin.TopicFeature.newRecord({
+			startDate: Date(),
+			endDate: Date() + 21,
+			priority: 1,
+	    });
+	
+		this.set('selection', topicFeature);
+	},
+    
 	//     var feature = Admin.TopicFeature.newRecord({
 	//       title:    'untitled',
 	//       text:     'click the Edit button to edit.',

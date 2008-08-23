@@ -20,6 +20,7 @@ Admin.appController = SC.Object.create(
 	areTopicFeaturesVisible: true,
 	areGroupFeaturesVisible: true,
 	areNetworkFeaturesVisible: true,
+	smallPageSize: 3,
  
   showAbout: function() {
     SC.page.get('about').set('isVisible', YES);
@@ -30,6 +31,7 @@ Admin.appController = SC.Object.create(
   },
 
   showTopicFeatures: function() {
+		Admin.topicFeaturesController.set('pageSize', 0);
 		this.set('areTopicFeaturesVisible', YES);
 		this.hideGroupFeatures();
 		this.hideNetworkFeatures();
@@ -40,6 +42,7 @@ Admin.appController = SC.Object.create(
 	},
 
   showGroupFeatures: function() {
+		Admin.groupFeaturesController.set('pageSize', 0);
 		this.set('areGroupFeaturesVisible', YES);
 		this.hideTopicFeatures();
 		this.hideNetworkFeatures();
@@ -50,6 +53,7 @@ Admin.appController = SC.Object.create(
 	},
 
   showNetworkFeatures: function() {
+		Admin.networkFeaturesController.set('pageSize', 0);
 		this.set('areNetworkFeaturesVisible', YES);
 		this.hideTopicFeatures();
 		this.hideGroupFeatures();
@@ -60,6 +64,9 @@ Admin.appController = SC.Object.create(
 	},
 	
 	showAllFeatures: function() {
+		Admin.topicFeaturesController.set('pageSize', this.get('smallPageSize'));
+		Admin.groupFeaturesController.set('pageSize', this.get('smallPageSize'));
+		Admin.networkFeaturesController.set('pageSize', this.get('smallPageSize'));
 		this.set('areTopicFeaturesVisible', YES);
 		this.set('areGroupFeaturesVisible', YES);
 		this.set('areNetworkFeaturesVisible', YES);

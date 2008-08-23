@@ -11,7 +11,7 @@
 //
 function main() {
 	
-	// document.title = 'CollegeWikis Administration';
+	document.title = 'CollegeWikis Administration';
 
   // Step 1: Load Your Model Data
   // The default code here will load the fixtures you have defined.
