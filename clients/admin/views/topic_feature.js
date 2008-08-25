@@ -36,7 +36,7 @@ Admin.TopicFeatureView = SC.CollectionView.extend(
 	  html.push('\n  <caption>Topic Features</caption>');
 	
 		html.push('\n  <colgroup>\
-		 					 \n    <col id=\"delete\">\
+							 \n    <col id=\"delete\">\
 							 \n    <col id=\"feature_id\">\
 							 \n    <col id=\"type_id\">\
 							 \n    <col id=\"type_name\">\
@@ -63,7 +63,7 @@ Admin.TopicFeatureView = SC.CollectionView.extend(
 			var topic = record.get('topic');
 			if (topic != null) {
 				html.push('\n    <tr>\
-									 \n      <td><a onclick=\"Admin.topicFeaturesController.del()\"></td>\
+									 \n      <td><a onclick=\"Admin.topicFeaturesController.del()\">-</a></td>\
 									 \n      <td>' + record.get('guid') + '</td>\
 									 \n      <td>' + topic.get('guid') + '</td>\
 									 \n      <td>' + topic.get('subject') + '</td>\
