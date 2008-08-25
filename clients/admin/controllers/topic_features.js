@@ -42,7 +42,7 @@ Admin.topicFeaturesController = SC.CollectionController.create(
     SC.page.get('editor').set('isVisible', NO);
     Admin.masterController.set('searchButtonDefault', true);
     Admin.masterController.set('searchFieldEnabled', true);
-    SC.page.get('header').get('searchWord').rootElement.select();
+    // SC.page.get('header').get('searchWord').rootElement.select(); // causes errors...
   },
 
   saveAndHideEditor: function(){

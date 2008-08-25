@@ -19,7 +19,7 @@
   </div>
 <% end %> <!-- header -->
 
-<% split_view :workspace, :class => 'sc-app-workspace header footer', :direction => :horizontal do %>
+<% split_view :workspace, :class => 'sc-app-workspace header footer', :direction => :horizontal, :can_collapse_views => false do %>
   <% view :sidebar do %>
     <% scroll_view :master_list do %>
       <h2><a onclick="Admin.appController.showAllFeatures();">Features</a></h2>
@@ -36,29 +36,31 @@
   <%= split_divider_view :width => 5 %>  
 
   <% view :detail_view do %>
-    <%= view :topic_features, :view => 'Admin.TopicFeatureView',
-      :tag => :table,
-      :attributes => { :summary => 'All Topic Features.' },
-      :editable => true,
-      :bind => {
-        :visible => 'Admin.appController.areTopicFeaturesVisible',
-        :content => 'Admin.topicFeaturesController.arrangedObjects'
+    <% scroll_view :detail_list do %>
+      <%= view :topic_features, :view => 'Admin.TopicFeatureView',
+        :tag => :table,
+        :attributes => { :summary => 'All Topic Features.' },
+        :editable => true,
+        :bind => {
+          :visible => 'Admin.appController.areTopicFeaturesVisible',
+          :content => 'Admin.topicFeaturesController.arrangedObjects'
       } %>
-    <%= view :group_features, :view => 'Admin.GroupFeatureView',
-      :tag => :table,
-      :attributes => { :summary => 'All Group Features.' }, 
-      :bind => {
-        :visible => 'Admin.appController.areGroupFeaturesVisible',
-        :content => 'Admin.groupFeaturesController.arrangedObjects'
+      <%= view :group_features, :view => 'Admin.GroupFeatureView',
+        :tag => :table,
+        :attributes => { :summary => 'All Group Features.' }, 
+        :bind => {
+          :visible => 'Admin.appController.areGroupFeaturesVisible',
+          :content => 'Admin.groupFeaturesController.arrangedObjects'
       } %>
-    <%= view :network_features, :view => 'Admin.NetworkFeatureView',
-      :tag => :table,
-      :attributes => { :summary => 'All Network Features.' }, 
-      :bind => {
-        :visible => 'Admin.appController.areNetworkFeaturesVisible',
-        :content => 'Admin.networkFeaturesController.arrangedObjects'
+      <%= view :network_features, :view => 'Admin.NetworkFeatureView',
+        :tag => :table,
+        :attributes => { :summary => 'All Network Features.' }, 
+        :bind => {
+          :visible => 'Admin.appController.areNetworkFeaturesVisible',
+          :content => 'Admin.networkFeaturesController.arrangedObjects'
       } %>
-  <% end %> <!-- main -->
+    <% end %> <!-- detail_view -->
+  <% end %> <!-- detail_view -->
 <% end %> <!-- split_view -->
 
 <% view :footer, :class => 'sc-footer sc-square-theme' do %>

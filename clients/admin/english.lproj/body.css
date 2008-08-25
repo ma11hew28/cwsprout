@@ -148,6 +148,14 @@ body {
  background-color: #aaa;
 }
 
+.workspace .detail_list {
+ position: absolute;
+ left:  0;
+ top:  0;
+ right: 0;
+ bottom: 0;
+}
+
 .workspace .detail_view .card-detail {
  margin-left: auto;
  margin-right: auto;
@@ -171,6 +179,10 @@ body {
 .workspace .detail_view .card-detail input {
  font-size: 14px;
  width: 300px;
+}
+
+.workspace .detail_view table {
+	position: static;
 }
 
 /* @end */
