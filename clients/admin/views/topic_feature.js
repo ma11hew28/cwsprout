@@ -1,5 +1,5 @@
 // ==========================================================================
-// Admin.TableView
+// Admin.TopicFeatureView
 // ==========================================================================
 
 require('core');
@@ -8,14 +8,16 @@ require('core');
 
   (Document Your View Here)
 
-  @extends SC.View
+  @extends SC.CollectionView
   @author AuthorName
   @version 0.1
 */
-Admin.TableView = SC.View.extend(
-/** @scope Admin.TableView.prototype */ {
+Admin.TopicFeatureView = SC.CollectionView.extend(
+/** @scope Admin.TopicFeatureView.prototype */ {
 
 	emptyElement: '<table class="sc-tabel-view"></table>', // this doesn't seem to do anything...
+
+	exampleView: SC.LabelView,
 
 	// Properties
 	content: [],
@@ -31,7 +33,7 @@ Admin.TableView = SC.View.extend(
 		// html.push('\n  <caption>' + tableTitle.toString() + '</caption>'
 		// html.push(this._renderColGroup('properties'))
 		
-	  html.push('\n  <caption>' + this.get('title') + ' Features</caption>');
+	  html.push('\n  <caption>Topic Features</caption>');
 	
 		html.push('\n  <colgroup>\
 		 					 \n    <col id=\"delete\">\
@@ -47,8 +49,8 @@ Admin.TableView = SC.View.extend(
                \n    <tr>\
 					     \n      <th scope=\"col\">Delete</th>\
 					     \n      <th scope=\"col\">Feature ID</th>\
-					     \n      <th scope=\"col\">' + this.get('title') + ' ID</th>\
-					     \n      <th scope=\"col\">' + this.get('title') + ' Title</th>\
+					     \n      <th scope=\"col\">Topic ID</th>\
+					     \n      <th scope=\"col\">Topic Subject</th>\
 					     \n      <th scope=\"col\">Start Date</th>\
 					     \n      <th scope=\"col\">End Date</th>\
 					     \n      <th scope=\"col\">Priority</th>\
@@ -57,32 +59,24 @@ Admin.TableView = SC.View.extend(
                \n  </thead>');
 
 		// Iterate through the collection and add rows
-		html.push(this._renderTBody(content));
+		content.each( function(record){
+			var topic = record.get('topic');
+			if (topic != null) {
+				html.push('\n    <tr>\
+									 \n      <td><a onclick=\"Admin.topicFeaturesController.del()\"></td>\
+									 \n      <td>' + record.get('guid') + '</td>\
+									 \n      <td>' + topic.get('guid') + '</td>\
+									 \n      <td>' + topic.get('subject') + '</td>\
+									 \n      <td>' + record.get('startDate') + '</td>\
+									 \n      <td>' + record.get('endDate') + '</td>\
+									 \n      <td>' + record.get('priority') + '</td>\
+									 \n    </tr>');
+			}
+		});
 
 		// Finally set the innerHTML of the view
 		html = html.join('');
 		this.set('innerHTML', html);
 	}.observes('content'),
-
-	_renderTBody: function(content) {
-		var html = [];
-
-		content.each( function(record){
-			html.push('\n    <tr>');
-
-			Admin.topicFeaturesController.arrangedObjects[0].get('topic').get('guid')
-			Admin.topicFeaturesController.arrangedObjects[0].get('topic').get('subject')
-
-			var noColumns = record.get('properties').length;
-			for (i=0; i < noColumns; i++){
-				html.push('\n      <td>');
-				html.push(record.get(record.get('properties')[i]));
-				html.push('</td>');
-			};
-			html.push('\n    </tr>');
-		});
-
-		return html.join('');
-	}
 
 }) ;

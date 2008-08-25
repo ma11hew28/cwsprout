@@ -16,16 +16,44 @@ require('core');
 Admin.topicFeaturesController = SC.CollectionController.create(
 /** @scope Admin.topicFeaturesController */ {
 
-	add: function(sender){
+  commitChangesImmediately: false,
+
+	add: function(sender) {
 	
 		var topicFeature = Admin.TopicFeature.newRecord({
+			topic: Admin.Topic.find(1),
 			startDate: Date(),
 			endDate: Date() + 21,
 			priority: 1,
-	    });
+	  });
 	
 		this.set('selection', topicFeature);
+		this.showEditor();
 	},
+
+  showEditor: function(sourceView, evt){
+    SC.page.get('editor').popup(sourceView, evt) ;
+    Admin.masterController.set('searchButtonDefault', false);
+    Admin.masterController.set('searchFieldEnabled', false);
+    SC.page.get('editor').get('priority').rootElement.select();
+  },
+
+  hideEditor: function(sourceView, evt){
+    SC.page.get('editor').set('isVisible', NO);
+    Admin.masterController.set('searchButtonDefault', true);
+    Admin.masterController.set('searchFieldEnabled', true);
+    SC.page.get('header').get('searchWord').rootElement.select();
+  },
+
+  saveAndHideEditor: function(){
+    this.commitChanges();
+    this.hideEditor();
+  },
+
+  cancelAndHideEditor: function(){
+    this.discardChanges();
+    this.hideEditor();
+  },
     
 	//     var feature = Admin.TopicFeature.newRecord({
 	//       title:    'untitled',

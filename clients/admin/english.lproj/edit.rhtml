@@ -1,0 +1,22 @@
+<% view :editor, :pane => :panel, :width => 600 do %>
+
+<table>
+  <tr>
+    <td><label>Priority</label></td>
+    <td>
+      <%= text_field_view :priority, :size => 70,
+                          :bind => {:value => 'Admin.topicFeaturesController.selection.priority'}
+      %>
+    </td>
+  </tr>
+</table>
+
+<div class="buttons">
+  <%= button_view :label => 'Cancel',
+                  :action => 'Admin.topicFeaturesController.cancelAndHideEditor'%>
+  <%= button_view :label => 'Save Changes', 
+                  :action => 'Admin.topicFeaturesController.saveAndHideEditor',
+                  :bind => {:enabled => 'Admin.topicFeaturesController.hasChanges'} %>
+</div>
+
+<% end %>

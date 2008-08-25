@@ -19,7 +19,7 @@ Admin.networkFeaturesController = SC.CollectionController.create(
 	title: 'Network',
 
   search: function(searchWord){
-    this.content.set('conditions', {'search':  this.get(searchWord)});
+    this.content.set('conditions', {'search': this.get(searchWord)});
   },
 
 }) ;

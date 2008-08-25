@@ -19,7 +19,7 @@ Admin.groupFeaturesController = SC.CollectionController.create(
 	title: 'Group',
 
   search: function(searchWord){
-    this.content.set('conditions', {'search':  this.get(searchWord)});
+    this.content.set('conditions', {'search': this.get(searchWord)});
   },
 
 }) ;

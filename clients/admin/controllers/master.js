@@ -21,7 +21,8 @@ Admin.masterController = SC.CollectionController.create(
 	searchWord: '',
   
 	searchButtonDefault: true,
-  
+  searchFieldEnabled: true,
+
 	search: function(){
 		Admin.topicFeaturesController.search('searchWord');
 		Admin.groupFeaturesController.search('searchWord');

@@ -24,7 +24,9 @@
     <% scroll_view :master_list do %>
       <h2><a onclick="Admin.appController.showAllFeatures();">Features</a></h2>
       <ul>
-        <li><a onclick="Admin.appController.showTopicFeatures();">Topics</a></li>
+        <li><a onclick="Admin.appController.showTopicFeatures();">Topics</a>
+          <%= button_view :add_topic_feature, :label => '+', :action => 'Admin.topicFeaturesController.add' %>
+        </li>
         <li><a onclick="Admin.appController.showGroupFeatures();">Groups</a></li>
         <li><a onclick="Admin.appController.showNetworkFeatures();">Networks</a></li>
       </ul>
@@ -37,6 +39,7 @@
     <%= view :topic_features, :view => 'Admin.TopicFeatureView',
       :tag => :table,
       :attributes => { :summary => 'All Topic Features.' },
+      :editable => true,
       :bind => {
         :visible => 'Admin.appController.areTopicFeaturesVisible',
         :content => 'Admin.topicFeaturesController.arrangedObjects'
