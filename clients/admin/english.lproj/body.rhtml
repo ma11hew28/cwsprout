@@ -11,6 +11,11 @@
       :bind => {:value => 'Admin.accountController.username'} %>
   </div>
   <div class="right">
+    <%= button_view :account_button, :title => "Account",
+      :enabled => true,
+      :action => 'Admin.accountController.showAccountDialog' %>
+    <%= button_view :logout_button, :title => "Logout",
+      :action => 'Admin.accountController.logout' %>
     <%= text_field_view :searchWord, :hint => 'Search by RegEx',
       :bind => {:value => 'Admin.masterController.searchWord'} %>
     <%= button_view :search_button, :title => 'Search',
@@ -19,21 +24,23 @@
   </div>
 <% end %> <!-- header -->
 
-<% split_view :workspace, :class => 'sc-app-workspace header footer', :direction => :horizontal, :can_collapse_views => false do %>
-  <% view :sidebar do %>
-    <% scroll_view :master_list do %>
-      <h2><a onclick="Admin.appController.showAllFeatures();">Features</a></h2>
-      <ul>
-        <li><a onclick="Admin.appController.showTopicFeatures();">Topics</a>
-          <%= button_view :add_topic_feature, :label => '+', :action => 'Admin.topicFeaturesController.add' %>
-        </li>
-        <li><a onclick="Admin.appController.showGroupFeatures();">Groups</a></li>
-        <li><a onclick="Admin.appController.showNetworkFeatures();">Networks</a></li>
-      </ul>
-    <% end %>
+<div id="workspace" class="workspace sc-app-workspace header">
+  <% view :sidebar, :class => 'sc-square-theme' do %>
+    <h2><a onclick="Admin.appController.showAllFeatures();">Features</a>
+      <%= button_view :del_feature, :label => '-', :action => 'Admin.masterController.delFeature' %>
+    </h2>
+    <ul>
+      <li onclick="Admin.appController.showTopicFeatures();">Topics
+        <%= button_view :add_topic_feature, :label => '+', :action => 'Admin.topicFeaturesController.add' %>
+      </li>
+      <li><a onclick="Admin.appController.showGroupFeatures();">Groups</a>
+        <%= button_view :add_group_feature, :label => '+', :action => 'Admin.groupFeaturesController.add' %>
+      </li>
+      <li><a onclick="Admin.appController.showNetworkFeatures();">Networks</a>
+        <%= button_view :add_network_feature, :label => '+', :action => 'Admin.networkFeaturesController.add' %>
+      </li>
+    </ul>
   <% end %> <!-- sidebar -->
-
-  <%= split_divider_view :width => 5 %>  
 
   <% view :detail_view do %>
     <% scroll_view :detail_list do %>
@@ -61,21 +68,6 @@
       } %>
     <% end %> <!-- detail_view -->
   <% end %> <!-- detail_view -->
-<% end %> <!-- split_view -->
-
-<% view :footer, :class => 'sc-footer sc-square-theme' do %>
-  <div class="center">
-    <p>© 2006-2008 <a href="http://www.collegewikis.com/" target="_blank">CollegeWikis.com</a>. All Rights Reserved.</p>
-  </div>
-  <div class="right">
-    <%= button_view :account_button, :title => "Account",
-      :enabled => true,
-      :action => 'Admin.accountController.showAccountDialog'
-       %>
-    <%= button_view :logout_button, :title => "Logout",
-      :action => 'Admin.accountController.logout'
-       %>
-  </div>
-<% end %> <!-- footer -->
+</div> <!-- split_view -->
 
 <% end %>

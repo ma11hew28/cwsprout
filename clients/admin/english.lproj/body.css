@@ -26,134 +26,168 @@
 
 /* Default CSS for welcome page.  Delete this styling and replace it with your own. */
 
-.sc-welcome {
- position: absolute ;
- top: 0px;
- left: 0px;
- right: 0px;
- bottom: 0px;
- background-color: white ;
-}
-
-.sc-welcome img.logo {
- position: absolute ;
- bottom: 80px;
- left: 50%;
- margin-left: -20px;
-}
-
-/* @group Message */
-
-.sc-welcome .message {
- max-width: 800px;
- margin-left: auto ;
- margin-right: auto;
- margin-top: 100px;
- position: relative;
-}
-
-.sc-welcome h1 {
- border: none ;
- padding: 0;
- margin: 0;
- letter-spacing: -3px;
- font: normal 6.4em "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
-}
-
-.sc-welcome h3 {
- margin: 8px 12px;
- padding: 0;
- font: 1.5em "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
- color: #808080;
-}
-
-/* @end */
-
-/* @group Sticky Note */
-
-.sc-welcome .sticky-note {
- position: absolute ;
- right: 0;
- top: -70px;
- width: 320px;
- height: 300px;
- padding: 60px;
- padding-right: 20px;
- background: static_url('sticky-note') no-repeat center center;
- font: 1.3em "Comic Sans MS", "Comic Sans", Arial, Helvetica, Geneva, sans-serif;
- color: #5f4700;
-}
-
-.sc-welcome .sticky-note p {
- font-weight: bold ;
-}
-
-.sc-welcome .sticky-note ul {
- padding: 0 10px ;
-}
-
-.sc-welcome .sticky-note li {
- margin: 8px 0 ;
-}
-
-/* @end */
 
 /* @group For Tutorial */
 
 body {
- position: absolute ;
+ position: absolute;
  left: 0;
  right: 0;
  top: 0;
  bottom: 0;
  padding: 0;
  margin: 0;
- overflow: hidden ;
+ overflow: hidden;
+}
+
+body.sc-theme {
+/*	background-color: #D3E3FF;
+	color: #222;
+*/
+background-color: #E6E3EF;
+color: black;
 }
 
 .workspace .sidebar {
- position: absolute;
- left:  0;
- top:  0;
- width: 200px;
- bottom: 0;
+ 	position: absolute;
+ 	left:  0;
+ 	top:  0;
+ 	width: 126px;
+ 	bottom: 0;
+ 	right: 0;
+	border: 1px solid #AAAAAA;
+	overflow: auto;
 }
 
-.workspace .sidebar .master_list {
- position: absolute;
- left:  0;
- top:  0;
- right: 0;
- bottom: 0;
+.workspace .sidebar h2 {
+	margin:0;
+	padding: 10px 4px 4px;
+	font-size: 1.1em;
+	font-weight: normal;
+	font-style: italic;
 }
 
-.workspace .sidebar .master_list ul {
-	top:25px;
+.workspace .sidebar ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	top: 25px;
 }
 
-.workspace .sc-split-divider-view {
- position: absolute;
- left: 200px;
- top: 0;
- bottom: 0;
+.workspace .sidebar li {
+	padding-left: 8px;
+	line-height: 27px;
 }
+
+.workspace .sidebar h2:hover, .workspace .sidebar li:hover {
+	cursor: pointer;
+  background-color:#3d80df;
+  color: #fff;
+}
+
+a#add_topic_feature {
+	margin-left: 18px;
+}
+
+a#add_group_feature {
+	margin-left: 12px;
+}
+
+a#add_network_feature {
+	margin-left: 0;
+}
+
 
 .workspace .detail_view {
- position: absolute;
- left: 205px;
- right: 0;
- top: 0;
- bottom: 0;
- border: none ;
- background-color: #aaa;
+	background-color: #F8F8F8;
+	position: absolute;
+	left: 126px;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	border: none ;
+	background-color: #aaa;
 }
 
+
+.workspace .detail_view table {
+	position: static;
+	margin: 0 auto 10px;
+/*	border-collapse: collapse;
+	border: 1px solid #bbb;
+*/}
+
+/*.workspace .detail_view tr {
+	border-top: 1px solid #bbb;
+}
+
+.workspace .detail_view caption {
+	text-align: left;
+	font-size: 1.2em;
+	font-weight: bold;
+	margin: 0 0 .4em;
+}
+
+.workspace .detail_view .odd {
+	background-color: #edf5ff;
+}
+
+.workspace .detail_view th, td {
+	padding: 0.1em 1em;
+}
+
+.workspace .detail_view col {
+	border-right: 1px solid #bbb;
+}
+
+.workspace .detail_view col#type_id {
+	width: 85px;
+}
+
+.workspace .detail_view td.check {
+	text-align: center;
+}
+
+.workspace .detail_view col#type_name {
+	width: 226px;
+}
+
+.workspace .detail_view col#start_date, col#end_date {
+	width: 110px;
+}
+
+.workspace .detail_view thead {
+	background: #ccc url(/images/bar.gif) repeat-x left center;
+	border-top: 1px solid #a5a5a5;
+	border-bottom: 1px solid #a5a5a5;
+}
+
+.workspace .detail_view th {
+  font-weight: normal;
+}
+
+.workspace .detail_view tr:hover {
+  background-color:#3d80df;
+  color: #fff;
+}
+
+.workspace .detail_view tr:hover a {
+  color: #fff;
+}
+
+.workspace .detail_view thead tr:hover {
+  background-color: transparent;
+  color: inherit;
+}
+*/
+
 .workspace .detail_list {
- position: absolute;
- left:  0;
- top:  0;
- right: 0;
- bottom: 0;
+	overflow: auto;
+	position: absolute;
+	left:  0;
+	top:  0;
+	right: 0;
+	bottom: 0;
 }
 
 .workspace .detail_view .card-detail {
@@ -179,10 +213,6 @@ body {
 .workspace .detail_view .card-detail input {
  font-size: 14px;
  width: 300px;
-}
-
-.workspace .detail_view table {
-	position: static;
 }
 
 /* @end */

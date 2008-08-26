@@ -161,8 +161,8 @@ Admin.TopicFeatureView = SC.CollectionView.extend(
 									 \n      <td>' + record.get('guid') + '</td>\
 									 \n      <td>' + topic.get('guid') + '</td>\
 									 \n      <td>' + topic.get('subject') + '</td>\
-									 \n      <td>' + record.get('startDate') + '</td>\
-									 \n      <td>' + record.get('endDate') + '</td>\
+									 \n      <td>' + record.get('startDate').toString().substring(0, 15) + '</td>\
+									 \n      <td>' + record.get('endDate').toString().substring(0, 15) + '</td>\
 									 \n      <td>' + record.get('priority') + '</td>\
 									 \n    </tr>');
 			}

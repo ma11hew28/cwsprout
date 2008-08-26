@@ -18,11 +18,11 @@ Admin.accountController = SC.Object.create(
 
   isLoggedIn: NO,
   uid:      -1,
-  username: 'Matt',
+  username: '',
   password: '',
   confirm_pass: '',
   token:    '',  
-  loginIsVisible: NO,
+  loginIsVisible: NO,      // Change this to YES to enable login.
   loginButtonEnabled:YES,
   loginButtonTitle: 'Login',
   loginButtonIsVisible: YES,
@@ -31,10 +31,10 @@ Admin.accountController = SC.Object.create(
 
   login: function(){
 		// test that name and password are valid
-		
-		// if valid, then:
-		this.set('isLoggedIn',YES);
-		this.set('loginIsVisible',NO);
+		if (this.get('username') == "Matt" && this.get('password') == "matt") {
+			this.set('isLoggedIn',YES);
+			this.set('loginIsVisible',NO);
+		} else alert('Login info is incorrect! Please try again.');
   },
   
   // _loginSuccess: function(res){
@@ -72,7 +72,7 @@ Admin.accountController = SC.Object.create(
 
   confirmPassword: function(){
     if(this.get('password') != this.get('confirm_pass')){
-        alert('confirm password is incorrect!');
+        alert('Passwords do not match!');
         return false;
     }
     return true;

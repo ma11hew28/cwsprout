@@ -23,7 +23,7 @@ Admin.topicFeaturesController = SC.CollectionController.create(
 		var topicFeature = Admin.TopicFeature.newRecord({
 			topic: Admin.Topic.find(1),
 			startDate: Date(),
-			endDate: Date() + 21,
+			endDate: Date(),
 			priority: 1,
 	  });
 	
