@@ -66,8 +66,8 @@ Admin.accountController = SC.Object.create(
     this.set("isLoggedIn", NO);
   
     /* destroy all local stored data */
-    var records = SC.Store.records();
-    SC.Store.destroyRecords(records);
+    // var records = SC.Store.records();
+    // SC.Store.destroyRecords(records);
   },
 
   confirmPassword: function(){

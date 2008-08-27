@@ -130,14 +130,14 @@ Admin.TopicFeatureView = SC.CollectionView.extend(
 	  html.push('\n  <caption>Topic Features</caption>');
 	
 		html.push('\n  <colgroup>\
-							 \n    <col id=\"delete\">\
-							 \n    <col id=\"feature_id\">\
-							 \n    <col id=\"type_id\">\
-							 \n    <col id=\"type_name\">\
-               \n    <col id=\"start_date\">\
-               \n    <col id=\"end_date\">\
-               \n    <col id=\"priority\">\
-							 \n    <col id=\"edit\">\
+							 \n    <col class=\"delete\">\
+							 \n    <col class=\"feature_id\">\
+							 \n    <col class=\"type_id\">\
+							 \n    <col class=\"type_name\">\
+               \n    <col class=\"start_date\">\
+               \n    <col class=\"end_date\">\
+               \n    <col class=\"priority\">\
+							 \n    <col class=\"edit\">\
                \n  </colgroup>\
                \n  <thead>\
                \n    <tr>\
@@ -153,17 +153,22 @@ Admin.TopicFeatureView = SC.CollectionView.extend(
                \n  </thead>');
 
 		// Iterate through the collection and add rows
+		var cnt = 0;
 		content.each( function(record){
 			var topic = record.get('topic');
 			if (topic != null) {
-				html.push('\n    <tr>\
-									 \n      <td><a onclick=\"Admin.topicFeaturesController.del()\">-</a></td>\
+				if (++cnt % 2 == 0)
+					html.push('\n    <tr class="even">');
+				else
+					html.push('\n    <tr>');
+				html.push('\n      <td class="delete"><a onclick="Admin.topicFeaturesController.del()">-</a></td>\
 									 \n      <td>' + record.get('guid') + '</td>\
 									 \n      <td>' + topic.get('guid') + '</td>\
-									 \n      <td>' + topic.get('subject') + '</td>\
+									 \n      <td>' + topic.get('subject').substring(0, 30) + '</td>\
 									 \n      <td>' + record.get('startDate').toString().substring(0, 15) + '</td>\
 									 \n      <td>' + record.get('endDate').toString().substring(0, 15) + '</td>\
 									 \n      <td>' + record.get('priority') + '</td>\
+									 \n      <td><a>edit</a></td>\
 									 \n    </tr>');
 			}
 		});

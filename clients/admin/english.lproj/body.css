@@ -97,8 +97,8 @@ a#add_network_feature {
 	margin-left: 0;
 }
 
-
 .workspace .detail_view {
+	padding-top: 10px;
 	background-color: #F8F8F8;
 	position: absolute;
 	left: 126px;
@@ -106,18 +106,19 @@ a#add_network_feature {
 	top: 0;
 	bottom: 0;
 	border: none ;
-	background-color: #aaa;
+	border: 1px solid #AAAAAA;
+	overflow: auto;
 }
-
 
 .workspace .detail_view table {
 	position: static;
+	/* margin: 0 5px 10px 16px; /* left align */
 	margin: 0 auto 10px;
-/*	border-collapse: collapse;
+	border-collapse: collapse;
 	border: 1px solid #bbb;
-*/}
+}
 
-/*.workspace .detail_view tr {
+.workspace .detail_view tr {
 	border-top: 1px solid #bbb;
 }
 
@@ -128,38 +129,40 @@ a#add_network_feature {
 	margin: 0 0 .4em;
 }
 
-.workspace .detail_view .odd {
+.workspace .detail_view .even {
 	background-color: #edf5ff;
 }
 
 .workspace .detail_view th, td {
-	padding: 0.1em 1em;
+	padding: 0.15em 1em 0.08em;
 }
 
 .workspace .detail_view col {
 	border-right: 1px solid #bbb;
 }
 
-.workspace .detail_view col#type_id {
-	width: 85px;
+.workspace .detail_view col.type_id {
+	width: 95px;
 }
 
-.workspace .detail_view td.check {
+.workspace .detail_view td.delete {
 	text-align: center;
 }
 
-.workspace .detail_view col#type_name {
+.workspace .detail_view col.type_name {
 	width: 226px;
 }
 
-.workspace .detail_view col#start_date, col#end_date {
-	width: 110px;
+.workspace .detail_view col.start_date, col.end_date {
+	width: 130px;
+}
+
+.workspace .detail_view col.edit {
+	border-right: none;
 }
 
 .workspace .detail_view thead {
-	background: #ccc url(/images/bar.gif) repeat-x left center;
-	border-top: 1px solid #a5a5a5;
-	border-bottom: 1px solid #a5a5a5;
+	background: #ccc static_url('images/bar.gif') repeat-x left center;
 }
 
 .workspace .detail_view th {
@@ -178,16 +181,6 @@ a#add_network_feature {
 .workspace .detail_view thead tr:hover {
   background-color: transparent;
   color: inherit;
-}
-*/
-
-.workspace .detail_list {
-	overflow: auto;
-	position: absolute;
-	left:  0;
-	top:  0;
-	right: 0;
-	bottom: 0;
 }
 
 .workspace .detail_view .card-detail {

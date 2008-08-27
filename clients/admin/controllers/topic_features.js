@@ -20,14 +20,15 @@ Admin.topicFeaturesController = SC.CollectionController.create(
 
 	add: function(sender) {
 	
-		var topicFeature = Admin.TopicFeature.newRecord({
-			topic: Admin.Topic.find(1),
-			startDate: Date(),
-			endDate: Date(),
-			priority: 1,
-	  });
-	
-		this.set('selection', topicFeature);
+		// var topicFeature = Admin.TopicFeature.newRecord({
+		// 	topic: Admin.Topic.find(1),
+		// 	startDate: Date(),
+		// 	endDate: Date(),
+		// 	priority: 1,
+		// 	  });
+		// 	
+		// this.set('selection', topicFeature);
+
 		this.showEditor();
 	},
 

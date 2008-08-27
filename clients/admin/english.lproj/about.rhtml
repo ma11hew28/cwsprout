@@ -1,13 +1,9 @@
-<% view :about, :pane => :dialog, :width => 300, :bind=>{:visible => 'Admin.appController.isAboutVisible'} do %>
-<h1>CollegeWikis Administration</h1>
-version: 0.6.1
-<hr>
-
-<p>© 2006-2008 <a href="http://www.collegewikis.com/" target="_blank">CollegeWikis.com</a>. All Rights Reserved.</p>
- 
-<div class="buttons">
-  <%= button_view :outlet => true, :title => 'Close',
-    :bind=>{:default => 'Admin.appController.isAboutVisible'},
+<% view :about, :pane => :dialog, :width => 310, :bind=>{:visible => 'Admin.appController.isAboutVisible'} do %>
+  <h1>CollegeWikis Administration</h1>
+  <p>Version 0.6.1</p>
+  <hr>
+  <p>© 2006-2008 <a href="http://www.collegewikis.com/" target="_blank">CollegeWikis.com</a>. All Rights Reserved.</p>
+  <%= button_view :title => 'Close',
+    :bind => {:default => 'Admin.appController.isAboutVisible'},
     :action => 'Admin.appController.hideAbout' %>
-</div>
 <% end %>

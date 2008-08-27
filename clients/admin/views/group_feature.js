@@ -34,14 +34,14 @@ Admin.GroupFeatureView = SC.View.extend(
 	  html.push('\n  <caption>Group Features</caption>');
 	
 		html.push('\n  <colgroup>\
-		 					 \n    <col id=\"delete\">\
-							 \n    <col id=\"feature_id\">\
-							 \n    <col id=\"type_id\">\
-							 \n    <col id=\"type_name\">\
-               \n    <col id=\"start_date\">\
-               \n    <col id=\"end_date\">\
-               \n    <col id=\"priority\">\
-							 \n    <col id=\"edit\">\
+		 					 \n    <col class=\"delete\">\
+							 \n    <col class=\"feature_id\">\
+							 \n    <col class=\"type_id\">\
+							 \n    <col class=\"type_name\">\
+               \n    <col class=\"start_date\">\
+               \n    <col class=\"end_date\">\
+               \n    <col class=\"priority\">\
+							 \n    <col class=\"edit\">\
                \n  </colgroup>\
                \n  <thead>\
                \n    <tr>\
@@ -57,16 +57,24 @@ Admin.GroupFeatureView = SC.View.extend(
                \n  </thead>');
 
 		// Iterate through the collection and add rows
+		var cnt = 0;
 		content.each( function(record){
-			html.push('\n    <tr>\
-								 \n      <td><a onclick=\"Admin.topicFeaturesController.del()\"></td>\
-								 \n      <td>' + record.get('guid') + '</td>\
-								 \n      <td>' + record.get('group').get('guid') + '</td>\
-								 \n      <td>' + record.get('group').get('name') + '</td>\
-								 \n      <td>' + record.get('startDate') + '</td>\
-								 \n      <td>' + record.get('endDate') + '</td>\
-								 \n      <td>' + record.get('priority') + '</td>\
-								 \n    </tr>');
+			var group = record.get('group');
+			if (group != null) {
+				if (++cnt % 2 == 0)
+					html.push('\n    <tr class="even">');
+				else
+					html.push('\n    <tr>');
+				html.push('\n      <td class="delete"><a onclick="Admin.groupFeaturesController.del()">-</a></td>\
+									 \n      <td>' + record.get('guid') + '</td>\
+									 \n      <td>' + group.get('guid') + '</td>\
+									 \n      <td>' + group.get('name').substring(0, 30) + '</td>\
+									 \n      <td>' + record.get('startDate').toString().substring(0, 15) + '</td>\
+									 \n      <td>' + record.get('endDate').toString().substring(0, 15) + '</td>\
+									 \n      <td>' + record.get('priority') + '</td>\
+									 \n      <td><a>edit</a></td>\
+									 \n    </tr>');
+		  }
 		});
 
 		// Finally set the innerHTML of the view
