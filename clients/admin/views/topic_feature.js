@@ -142,12 +142,12 @@ Admin.TopicFeatureView = SC.CollectionView.extend(
                \n  <thead>\
                \n    <tr>\
 					     \n      <th scope=\"col\">Delete</th>\
-					     \n      <th scope=\"col\">Feature ID</th>\
-					     \n      <th scope=\"col\">Topic ID</th>\
-					     \n      <th scope=\"col\">Topic Subject</th>\
-					     \n      <th scope=\"col\">Start Date</th>\
-					     \n      <th scope=\"col\">End Date</th>\
-					     \n      <th scope=\"col\">Priority</th>\
+					     \n      <th scope=\"col\" onclick=\"Admin.topicFeaturesController.orderById();\">Feature ID</th>\
+					     \n      <th scope=\"col\" onclick=\"Admin.topicFeaturesController.orderByTopicId();\">Topic ID</th>\
+					     \n      <th scope=\"col\" onclick=\"Admin.topicFeaturesController.orderByTopicSubject();\">Topic Subject</th>\
+					     \n      <th scope=\"col\" onclick=\"Admin.topicFeaturesController.orderByStartDate();\">Start Date</th>\
+					     \n      <th scope=\"col\" onclick=\"Admin.topicFeaturesController.orderByEndDate();\">End Date</th>\
+					     \n      <th scope=\"col\" onclick=\"Admin.topicFeaturesController.orderByPriority();\">Priority</th>\
 					     \n      <th scope=\"col\">Edit</th>\
                \n    </tr>\
                \n  </thead>');

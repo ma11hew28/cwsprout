@@ -167,6 +167,7 @@ a#add_network_feature {
 
 .workspace .detail_view th {
   font-weight: normal;
+	cursor: pointer;
 }
 
 .workspace .detail_view tr:hover {

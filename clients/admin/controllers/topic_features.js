@@ -16,7 +16,49 @@ require('core');
 Admin.topicFeaturesController = SC.CollectionController.create(
 /** @scope Admin.topicFeaturesController */ {
 
-  commitChangesImmediately: false,
+  // commitChangesImmediately: false,
+
+	orderById: function() {
+		if (this.get('orderBy') == 'guid ASC') {
+			this.set('orderBy', 'guid DESC');
+		} else
+		 	this.set('orderBy', 'guid ASC');
+	},
+
+	orderByTopicId: function() {
+		if (this.get('orderBy') == 'topic.guid ASC') {
+			this.set('orderBy', 'topic.guid DESC');
+		} else
+		 	this.set('orderBy', 'topic.guid ASC');
+	},
+
+	orderByTopicSubject: function() {
+		if (this.get('orderBy') == 'topic.subject ASC') {
+			this.set('orderBy', 'topic.subject DESC');
+		} else
+		 	this.set('orderBy', 'topic.subject ASC');
+	},
+
+	orderByStartDate: function() {
+		if (this.get('orderBy') == 'startDate ASC') {
+			this.set('orderBy', 'startDate DESC');
+		} else
+		 	this.set('orderBy', 'startDate ASC');
+	},
+
+	orderByEndDate: function() {
+		if (this.get('orderBy') == 'endDate ASC') {
+			this.set('orderBy', 'endDate DESC');
+		} else
+		 	this.set('orderBy', 'endDate ASC');
+	},
+
+	orderByPriority: function() {
+		if (this.get('orderBy') == 'priority ASC') {
+			this.set('orderBy', 'priority DESC');
+		} else
+		 	this.set('orderBy', 'priority ASC');
+	},
 
 	add: function(sender) {
 	
