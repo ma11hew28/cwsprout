@@ -46,12 +46,12 @@ Admin.GroupFeatureView = SC.View.extend(
                \n  <thead>\
                \n    <tr>\
 					     \n      <th scope=\"col\">Delete</th>\
-					     \n      <th scope=\"col\">Feature ID</th>\
-					     \n      <th scope=\"col\">Group ID</th>\
-					     \n      <th scope=\"col\">Group Name</th>\
-					     \n      <th scope=\"col\">Start Date</th>\
-					     \n      <th scope=\"col\">End Date</th>\
-					     \n      <th scope=\"col\">Priority</th>\
+					     \n      <th scope=\"col\" onclick=\"Admin.groupFeaturesController.orderById();\">Feature ID</th>\
+					     \n      <th scope=\"col\" onclick=\"Admin.groupFeaturesController.orderByGroupId();\">Group ID</th>\
+					     \n      <th scope=\"col\" onclick=\"Admin.groupFeaturesController.orderByGroupName();\">Group Name</th>\
+					     \n      <th scope=\"col\" onclick=\"Admin.groupFeaturesController.orderByStartDate();\">Start Date</th>\
+					     \n      <th scope=\"col\" onclick=\"Admin.groupFeaturesController.orderByEndDate();\">End Date</th>\
+					     \n      <th scope=\"col\" onclick=\"Admin.groupFeaturesController.orderByPriority();\">Priority</th>\
 					     \n      <th scope=\"col\">Edit</th>\
                \n    </tr>\
                \n  </thead>');

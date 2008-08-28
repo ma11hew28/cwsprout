@@ -46,12 +46,12 @@ Admin.NetworkFeatureView = SC.View.extend(
                \n  <thead>\
                \n    <tr>\
 					     \n      <th scope=\"col\">Delete</th>\
-					     \n      <th scope=\"col\">Feature ID</th>\
-					     \n      <th scope=\"col\">Network ID</th>\
-					     \n      <th scope=\"col\">Network Name</th>\
-					     \n      <th scope=\"col\">Start Date</th>\
-					     \n      <th scope=\"col\">End Date</th>\
-					     \n      <th scope=\"col\">Priority</th>\
+					     \n      <th scope=\"col\" onclick=\"Admin.networkFeaturesController.orderById();\">Feature ID</th>\
+					     \n      <th scope=\"col\" onclick=\"Admin.networkFeaturesController.orderByNetworkId();\">Network ID</th>\
+					     \n      <th scope=\"col\" onclick=\"Admin.networkFeaturesController.orderByNetworkName();\">Network Name</th>\
+					     \n      <th scope=\"col\" onclick=\"Admin.networkFeaturesController.orderByStartDate();\">Start Date</th>\
+					     \n      <th scope=\"col\" onclick=\"Admin.networkFeaturesController.orderByEndDate();\">End Date</th>\
+					     \n      <th scope=\"col\" onclick=\"Admin.networkFeaturesController.orderByPriority();\">Priority</th>\
 					     \n      <th scope=\"col\">Edit</th>\
                \n    </tr>\
                \n  </thead>');
