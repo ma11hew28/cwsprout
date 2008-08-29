@@ -18,7 +18,7 @@ Admin.accountController = SC.Object.create(
 
   isLoggedIn: NO,
   uid:      -1,
-  username: '',
+  username: 'Matt', // Change this back to ''
   password: '',
   confirm_pass: '',
   token:    '',  

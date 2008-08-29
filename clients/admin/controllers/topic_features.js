@@ -61,16 +61,19 @@ Admin.topicFeaturesController = SC.CollectionController.create(
 	},
 
 	add: function(sender) {
-	
-		// var topicFeature = Admin.TopicFeature.newRecord({
-		// 	topic: Admin.Topic.find(1),
-		// 	startDate: Date(),
-		// 	endDate: Date(),
-		// 	priority: 1,
-		// 	  });
-		// 	
-		// this.set('selection', topicFeature);
+    var defaultStartDate = new Date();
+		var defaultEndDate = new Date();
+		defaultEndDate.setDate(defaultStartDate.getDate() + 14);
 
+		var topicFeature = Admin.TopicFeature.newRecord({
+			topic: Admin.Topic.find(1),
+			startDate: defaultStartDate,
+			endDate: defaultEndDate,
+			priority: 1,
+		});
+
+    // topicFeature.commitChanges();
+		this.set('selection', topicFeature);
 		this.showEditor();
 	},
 

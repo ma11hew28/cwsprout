@@ -18,115 +18,20 @@ Admin.TopicFeatureView = SC.CollectionView.extend(
 /** @scope Admin.TopicFeatureView.prototype */ {
 
 	// What is the purpose of setting emptyElement?
-	emptyElement: '<table class="sc-tabel-view"></table>',
-
-  /** 
-    The common row height for list view items.
-
-    If you set this property, then the TableView will be able to use this
-    property to perform absolute layout of its children and to minimize the
-    number of actual views it has to create.
-
-    The value should be an integer expressed in pixels.
-  */
-  // rowHeight: 20,
-
-	// What is exampleView?
-	// exampleView: SC.LabelView,
+	emptyElement: '<table class="sc-tabel-view"><caption></caption> \
+		<colgroup></colgroup><thead><tr><th></th></tr></thead> \
+		<tbody><tr><td><span class="label"></span></td></tr></tbody>
+	</table>',
 
 	// Properties
 	content: [],
 	contentBindingDefault: SC.Binding.MultipleNotEmpty,
 
-	// insertionOrientation: SC.VERTICAL_ORIENTATION,
-	// 
-	//   contentRangeInFrame: function(frame) {
-	//     var rowHeight = this.get('rowHeight') || 0;
-	//     var min = Math.max(0,Math.floor(SC.minY(frame) / rowHeight)-1);
-	//     var max = Math.ceil(SC.maxY(frame) / rowHeight);
-	//     var ret = { start: min, length: max - min };
-	//     // console.log('contentRangeInFrame(%@) = %@'.fmt($H(frame).inspect(), $H(ret).inspect()));
-	//     //if (frame.height < 100) debugger;
-	//     return ret;
-	//   },
-	// 
-	//   /** @private */
-	//   layoutItemView: function(itemView, contentIndex, firstLayout) {
-	//     //if (!itemView) debugger;
-	//     SC.Benchmark.start('SC.TableView.layoutItemViewsFor');
-	// 
-	//     var rowHeight = this.get('rowHeight') || 0;
-	//     var parentView = itemView.get('parentView');
-	//     var f = {
-	//       x: 0,
-	//       y: contentIndex*rowHeight,
-	//       height: rowHeight,
-	//       width: (parentView || this).get('innerFrame').width 
-	//     };
-	// 
-	//     if (firstLayout || !SC.rectsEqual(itemView.get('frame'), f)) {
-	//       itemView.set('frame', f);
-	//     }
-	//     SC.Benchmark.end('SC.TableView.layoutItemViewsFor');
-	//   },
-	//   
-	//   computeFrame: function() {
-	//     var content = this.get('content');
-	//     var rows = (content) ? content.get('length') : 0;
-	//     var rowHeight = this.get('rowHeight') || 20;
-	//     
-	//     var parent = this.get('parentNode') ;
-	//     var f = (parent) ? parent.get('innerFrame') : { width: 100, height: 100 };
-	// 
-	//     f.x = f.y = 0;
-	//     f.height = Math.max(f.height, rows * rowHeight);
-	//     // console.log('computeFrame(%@)'.fmt($H(f).inspect()));
-	//     return f;
-	//   },
-	//   
-	//   insertionPointClass: SC.View.extend({
-	//     emptyElement: '<div class="list-insertion-point"><span class="anchor"></span></div>'
-	//   }),
-	//   
-	//   showInsertionPointBefore: function(itemView) {
-	//     if (!itemView) return ;
-	// 
-	//     if (!this._insertionPointView) {
-	//       this._insertionPointView = this.insertionPointClass.create();
-	//     };
-	// 
-	//     var insertionPoint = this._insertionPointView;
-	//     f = { height: 0, x: 8, y: itemView.get('frame').y, width: itemView.owner.get('frame').width };
-	//     insertionPoint.set('frame', f);
-	// 
-	//     if (insertionPoint.parentNode != itemView.parentNode) {
-	//       itemView.parentNode.appendChild(insertionPoint);
-	//     }
-	//   },
-	// 
-	//   hideInsertionPoint: function() {
-	//     var insertionPoint = this._insertionPointView;
-	//     if (insertionPoint) insertionPoint.removeFromParent();
-	//   },
-	// 
-	//   // We can do this much faster programatically using the rowHeight
-	//   insertionIndexForLocation: function(loc) {  
-	//     var f = this.get('innerFrame');
-	//     var sf = this.get('scrollFrame');
-	//     var ret = Math.floor(((loc.y - f.y - sf.y) / this.get('rowHeight')) + 0.4);
-	//     return ret;
-	//   },
-
 	render: function() {
 		var html = [];
 		var content = this.get('content');
 		
-		// the newline and spaces are for well formatted html
-		// TODO: simplify the following code with the commented out lines below
-		
-		// html.push('\n  <caption>' + tableTitle.toString() + '</caption>'
-		// html.push(this._renderColGroup('properties'))
-		
+		// the newlines and spaces are for well formatted html		
 	  html.push('\n  <caption>Topic Features</caption>');
 	
 		html.push('\n  <colgroup>\
@@ -156,7 +61,7 @@ Admin.TopicFeatureView = SC.CollectionView.extend(
 		var cnt = 0;
 		content.each( function(record){
 			var topic = record.get('topic');
-			if (topic != null) {
+			if (record.get('startDate') != null && record.get('endDate') != null) {
 				if (++cnt % 2 == 0)
 					html.push('\n    <tr class="even">');
 				else
@@ -177,5 +82,12 @@ Admin.TopicFeatureView = SC.CollectionView.extend(
 		html = html.join('');
 		this.set('innerHTML', html);
 	}.observes('content'),
+
+  /** @private */
+  labelView: SC.LabelView.extend({
+    
+	  isEditable: YES,
+
+  }).outletFor('td?')
 
 }) ;
