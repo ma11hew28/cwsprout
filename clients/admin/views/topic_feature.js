@@ -18,10 +18,7 @@ Admin.TopicFeatureView = SC.CollectionView.extend(
 /** @scope Admin.TopicFeatureView.prototype */ {
 
 	// What is the purpose of setting emptyElement?
-	emptyElement: '<table class="sc-tabel-view"><caption></caption> \
-		<colgroup></colgroup><thead><tr><th></th></tr></thead> \
-		<tbody><tr><td><span class="label"></span></td></tr></tbody>
-	</table>',
+	emptyElement: '<table class="sc-tabel-view"></table>',
 
 	// Properties
 	content: [],

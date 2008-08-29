@@ -24,6 +24,8 @@
 <div id="workspace" class="workspace sc-app-workspace header">
 
   <% view :detail_view do %>
+    <%= view :test_view, :view => 'Admin.TestView',
+      :bind => {:value => 'Admin.masterController.test'} %>
     <%= view :topic_features, :view => 'Admin.TopicFeatureView',
       :tag => :table,
       :attributes => { :summary => 'All Topic Features.' },

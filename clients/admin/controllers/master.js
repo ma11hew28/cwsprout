@@ -19,6 +19,7 @@ Admin.masterController = SC.CollectionController.create(
 	// headers: ['Feature ID', 'Start Date', 'End Date', 'Priority']
 
 	searchWord: '',
+	test: 'test', // this is for testing purposes and can be deleted entirely
   
 	searchButtonDefault: true,
   searchFieldEnabled: true,
